@@ -19,7 +19,18 @@ public class MainController {
         return courtsRepository.findAll();
     }
 
-    @GetMapping(path="/nearby")
+    // path variable
+    // http://localhost:8080/courts/nearby/-128.0000/37.0000/5
+//    @GetMapping(path="/nearby/{longitude}/{latitude}/{radius}")
+//    public @ResponseBody Iterable<Courts> getCourtsNearby(@PathVariable float longitude,
+//                                                          @PathVariable float latitude,
+//                                                          @PathVariable int radius) {
+//        return courtsRepository.findCourtsNearby(longitude, latitude, radius);
+//    }
+
+    // request param
+    // http://localhost:8080/courts/nearby?longitude=-128.0000&latitude=37.0000&radius=5
+    @GetMapping(path="/nearby/")
     public @ResponseBody Iterable<Courts> getCourtsNearby(@RequestParam float longitude,
                                                           @RequestParam float latitude,
                                                           @RequestParam int radius) {
